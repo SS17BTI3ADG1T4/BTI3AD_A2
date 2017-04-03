@@ -14,12 +14,21 @@ public class FastPrim {
 	}
 
 	public ArrayList<Integer> primzahlen(int n) {
+	  if(n<=1){
+      return new ArrayList<Integer>();
+    }
+    if(n==2){
+      ArrayList<Integer> temp = new ArrayList<Integer>();
+      temp.add(2);
+      return temp;
+    }
 		boolean a[] = new boolean[n + 1];
 		for (int i = 0; i < n; i++) {
 			count();
 			a[i] = true;
 		}
-
+		a[0]=false;
+		a[1]=false;
 		// Algorithm
 		for (int i = 3; i < n; i += 2) {
 			count();

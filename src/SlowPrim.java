@@ -14,11 +14,22 @@ public class SlowPrim {
 	}
 
 	public ArrayList<Integer> primzahlen(int N) {
+	  if(N<=1){
+      return new ArrayList<Integer>();
+    }
+    if(N==2){
+      ArrayList<Integer> temp = new ArrayList<Integer>();
+      temp.add(2);
+      return temp;
+    }
+    
 		boolean a[] = new boolean[N];
 		for (int i = 0; i < N; i++) {
 			a[i] = true;
 			count();
 		}
+		a[0]=false;
+		a[1]=false;
 		for (int i = 2; i < N; i++) {
 			count();
 			for (int j = 2; j < N; j++) {

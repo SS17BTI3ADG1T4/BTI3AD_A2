@@ -14,22 +14,24 @@ public class SlowPrim {
 	}
 
 	public ArrayList<Integer> primzahlen(int N) {
-	  if(N<=1){
-      return new ArrayList<Integer>();
-    }
-    if(N==2){
-      ArrayList<Integer> temp = new ArrayList<Integer>();
-      temp.add(2);
-      return temp;
-    }
-    
+		if (N <= 1) {
+			System.out.print("\t" + counter.getCounter() + "\n");
+			return new ArrayList<Integer>();
+		}
+		if (N == 2) {
+			ArrayList<Integer> temp = new ArrayList<Integer>();
+			temp.add(2);
+			System.out.print("\t" + counter.getCounter() + "\n");
+			return temp;
+		}
+
 		boolean a[] = new boolean[N];
 		for (int i = 0; i < N; i++) {
 			a[i] = true;
 			count();
 		}
-		a[0]=false;
-		a[1]=false;
+		a[0] = false;
+		a[1] = false;
 		for (int i = 2; i < N; i++) {
 			count();
 			for (int j = 2; j < N; j++) {
@@ -46,7 +48,7 @@ public class SlowPrim {
 				list.add(p);
 			}
 		}
-		System.out.print("\t\t"+counter.getCounter() + "\n");
+		System.out.print("\t" + counter.getCounter() + "\n");
 		return list;
 	}
 
@@ -58,6 +60,7 @@ public class SlowPrim {
 			counter.counterUp(1);
 		}
 	}
+
 	public static void main(String[] args) {
 		Counter count = new Counter();
 		SlowPrim test = new SlowPrim(count);
@@ -66,6 +69,6 @@ public class SlowPrim {
 		int n = scan.nextInt();
 		scan.close();
 
-		System.out.println("\n" + test.primzahlen(n)+ "");
+		System.out.println("\n" + test.primzahlen(n) + "");
 	}
 }

@@ -15,11 +15,13 @@ public class FastPrim {
 
 	public ArrayList<Integer> primzahlen(int n) {
 	  if(n<=1){
+		  System.out.print("\t" + counter.getCounter() + "\n");
       return new ArrayList<Integer>();
     }
     if(n==2){
       ArrayList<Integer> temp = new ArrayList<Integer>();
       temp.add(2);
+	  System.out.print("\t" + counter.getCounter() + "\n");
       return temp;
     }
 		boolean a[] = new boolean[n + 1];
@@ -50,7 +52,7 @@ public class FastPrim {
 				list.add(p);
 			}
 		}
-		System.out.print("\t\t" + counter.getCounter() + "\n");
+		System.out.print("\t" + counter.getCounter() + "\n");
 		return list;
 
 	}

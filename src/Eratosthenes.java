@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Eratosthenes {
-
+	
 	private Counter counter;
 
 	public Eratosthenes() {
@@ -15,11 +15,13 @@ public class Eratosthenes {
 
 	public ArrayList<Integer> primzahlen(int N) {
 	  if(N<=1){
+		  System.out.print("\t" + counter.getCounter() + "\n");
       return new ArrayList<Integer>();
     }
     if(N==2){
       ArrayList<Integer> temp = new ArrayList<Integer>();
       temp.add(2);
+	  System.out.print("\t" + counter.getCounter() + "\n");
       return temp;
     }
 
@@ -47,7 +49,7 @@ public class Eratosthenes {
 				list.add(i);
 			}
 		}
-		System.out.print("\t\t" + counter.getCounter() + "\n");
+		System.out.print("\t" + counter.getCounter() + "\n");
 		return list;
 	}
 

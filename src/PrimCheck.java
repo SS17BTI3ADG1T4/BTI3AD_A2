@@ -18,17 +18,17 @@ public class PrimCheck {
     }
     if(num==2){
       count();
-      System.out.print("\t\t" + counter.getCounter() + "\n");
+      System.out.print("\t" + counter.getCounter() + "\n");
       return true;
     }
     for (int i = 2; i <= Math.sqrt(num); i ++) {
       count();
       if (num % i == 0) {
-        System.out.print("\t\t" + counter.getCounter() + "\n");
+        System.out.print("\t" + counter.getCounter() + "\n");
         return false;
       }
     }
-    System.out.print("\t\t" + counter.getCounter() + "\n");
+    System.out.print("\t" + counter.getCounter() + "\n");
     return true;
   }
 

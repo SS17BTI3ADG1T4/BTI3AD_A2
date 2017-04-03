@@ -14,12 +14,22 @@ public class Eratosthenes {
 	}
 
 	public ArrayList<Integer> primzahlen(int N) {
+	  if(N<=1){
+      return new ArrayList<Integer>();
+    }
+    if(N==2){
+      ArrayList<Integer> temp = new ArrayList<Integer>();
+      temp.add(2);
+      return temp;
+    }
 
 		boolean[] a = new boolean[N];
 		for (int i = 0; i < N; i++) {
 			a[i] = true;
 			count();
 		}
+		a[0]=false;
+    a[1]=false;
 		for (int i = 2; i < Math.sqrt(N); i++) {
 			count();
 			if (a[i] == true) {
@@ -37,7 +47,7 @@ public class Eratosthenes {
 				list.add(i);
 			}
 		}
-		System.out.print("\t" + counter.getCounter() + "\n");
+		System.out.print("\t\t" + counter.getCounter() + "\n");
 		return list;
 	}
 

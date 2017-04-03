@@ -6,7 +6,7 @@
  * @class der Counter ist für die Aufwandsanalyse.
  */
 public class Counter {
-	
+
 	/** counter ist der Zaehlwert fuer den Counter. */
 	private int counter;
 
@@ -30,7 +30,8 @@ public class Counter {
 	/**
 	 * Sets the counter.
 	 *
-	 * @param counter the new counter
+	 * @param counter
+	 *            the new counter
 	 */
 	public void setCounter(int counter) {
 		this.counter = counter;
@@ -39,7 +40,8 @@ public class Counter {
 	/**
 	 * Counter up.
 	 *
-	 * @param add            gibt die Zahl an, um wie viel hochgezaehlt werden soll.
+	 * @param add
+	 *            gibt die Zahl an, um wie viel hochgezaehlt werden soll.
 	 */
 	public void counterUp(int add) {
 		this.counter = counter + add;

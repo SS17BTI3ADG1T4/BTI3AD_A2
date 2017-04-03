@@ -13,20 +13,24 @@ public class PrimCheck {
 	}
 	
 	public boolean isPrime(int num) {
-	  if(num<=1){
-	    return false;
-	  }
-
-		for (int i = 2; i <= Math.sqrt(num); i ++) {
-			count();
-			if (num % i == 0) {
-				System.out.print("\t\t" + counter.getCounter() + "\n");
-				return false;
-			}
-		}
-		System.out.print("\t\t" + counter.getCounter() + "\n");
-		return true;
-	}
+    if(num<=1){
+      return false;
+    }
+    if(num==2){
+      count();
+      System.out.print("\t\t" + counter.getCounter() + "\n");
+      return true;
+    }
+    for (int i = 2; i <= Math.sqrt(num); i ++) {
+      count();
+      if (num % i == 0) {
+        System.out.print("\t\t" + counter.getCounter() + "\n");
+        return false;
+      }
+    }
+    System.out.print("\t\t" + counter.getCounter() + "\n");
+    return true;
+  }
 
 	/**
 	 * Count.

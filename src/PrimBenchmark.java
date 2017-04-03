@@ -3,6 +3,13 @@ public class PrimBenchmark {
 	/** The counter. */
 	static Counter counter;
 
+	private final static int PRIM1=7;
+  private final static int PRIM2=97;
+  private final static int PRIM3=997;
+  private final static int PRIM4=9973;
+  private final static int PRIM5=99991;
+  private final static int MAXPRIM= 2147483647;
+	
 	/**
 	 * Main
 	 * 
@@ -23,9 +30,17 @@ public class PrimBenchmark {
 			doBenchMarkTestEratosthenes(i);
 		}
 		System.out.println("\nPrimCheck\tN\tT(N)");
-		for (int i = 1; i <= expsize; i *= 2) {
-			doBenchMarkTestPrimCheck(i);
-		}
+		doBenchMarkTestPrimCheck(PRIM1);
+
+    doBenchMarkTestPrimCheck(PRIM2);
+
+    doBenchMarkTestPrimCheck(PRIM3);
+
+    doBenchMarkTestPrimCheck(PRIM4);
+
+    doBenchMarkTestPrimCheck(PRIM5);
+
+    doBenchMarkTestPrimCheck(MAXPRIM);
 
 
 		// int expsize = 5;
@@ -77,14 +92,13 @@ public class PrimBenchmark {
 
 	}
 
-	private final static int MAXPRIM= 2147483647;
-	private static void doBenchMarkTestPrimCheck(int n) {
-		// int size = (int) Math.pow(10, n);
-		int size = n;
-		Counter countPrimCheck = new Counter();
-		PrimCheck testPrimCheck = new PrimCheck(countPrimCheck);
-		System.out.print("\t\t" + size);
-		testPrimCheck.isPrime(MAXPRIM);
+	
+private static void doBenchMarkTestPrimCheck(int N) {
+    
+    Counter countPrimCheck = new Counter();
+    PrimCheck testPrimCheck = new PrimCheck(countPrimCheck);
+    System.out.print("\t\t" + N);
+    testPrimCheck.isPrime(N);
 
-	}
+  }
 }

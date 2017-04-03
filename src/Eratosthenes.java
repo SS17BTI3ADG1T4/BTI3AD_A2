@@ -37,7 +37,7 @@ public class Eratosthenes {
 				list.add(i);
 			}
 		}
-		System.out.println(counter.getCounter());
+		System.out.print("\t" + counter.getCounter() + "\n");
 		return list;
 	}
 

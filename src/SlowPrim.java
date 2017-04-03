@@ -35,7 +35,7 @@ public class SlowPrim {
 				list.add(p);
 			}
 		}
-		System.out.println(counter.getCounter());
+		System.out.print("\t"+counter.getCounter() + "\n");
 		return list;
 	}
 
@@ -54,22 +54,7 @@ public class SlowPrim {
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt();
 		scan.close();
-/*
-		int count1, count2, count3, count4;
-		test.slowSearch(n);
-		count1 = test.count;
-		test.fastSearch(n);
-		count2 = test.count - count1;
-		test.eratSearch(n);
-		count3 = test.count - count2 - count1;
-		//test.primeIndentify(n);
-		for (int i = 0; i < n; i++) {
-			test.primeIndentify(i);
-		}
-		count4 = test.count - count3 - count2 - count1;
-		System.out.format("%d  %d  %d   %d\n", count1, count2, count3, count4);
 
-*/	
 		System.out.println("\n" + test.primzahlen(n)+ "");
 	}
 }

@@ -50,7 +50,7 @@ public class FastPrim {
 				list.add(p);
 			}
 		}
-		System.out.print("\t" + counter.getCounter() + "\n");
+		System.out.print("\t\t" + counter.getCounter() + "\n");
 		return list;
 
 	}

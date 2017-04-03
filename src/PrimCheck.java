@@ -13,6 +13,9 @@ public class PrimCheck {
 	}
 	
 	public boolean isPrime(int num) {
+	  if(num<=1){
+	    return false;
+	  }
 
 		for (int i = 2; i <= Math.sqrt(num); i ++) {
 			count();
@@ -43,5 +46,10 @@ public class PrimCheck {
 		
 		System.out.println("\n" + test.isPrime(n)+ "");
 	}
+	
+	//Source: http://stackoverflow.com/questions/2385909/what-would-be-the-fastest-method-to-test-for-primality-in-java
+	public boolean isPrime2(int n) {
+    return !new String(new char[n]).matches(".?|(..+?)\\1+");
+}
 
 }

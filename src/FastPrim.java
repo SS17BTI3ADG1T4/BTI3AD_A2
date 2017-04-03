@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FastPrim {
 
@@ -22,7 +23,7 @@ public class FastPrim {
 		// Algorithm
 		for (int i = 3; i < N; i += 2) {
 			count();
-			for (int j = 2; j < Math.sqrt(i); j++) {
+			for (int j = 2; j <= Math.sqrt(i); j++) {
 				count();
 				if ((i % j == 0) && (j != i)) {
 					a[i] = false;
@@ -30,7 +31,7 @@ public class FastPrim {
 							// bereits einmal eine Division geklappt hat.
 				}
 			}
-			a[i + 1] = false;
+			a[i+1] = false;
 		}
 		// endAlgorithm
 		ArrayList<Integer> list = new ArrayList<>();
@@ -40,6 +41,7 @@ public class FastPrim {
 				list.add(p);
 			}
 		}
+		System.out.println(counter.getCounter());
 		return list;
 
 	}
@@ -51,5 +53,30 @@ public class FastPrim {
 		if (counter != null) {
 			counter.counterUp(1);
 		}
+	}
+	public static void main(String[] args) {
+		Counter count = new Counter();
+		FastPrim test = new FastPrim(count);
+		System.out.print("Please input a number for the FastPrim search. ");
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		scan.close();
+/*
+		int count1, count2, count3, count4;
+		test.slowSearch(n);
+		count1 = test.count;
+		test.fastSearch(n);
+		count2 = test.count - count1;
+		test.eratSearch(n);
+		count3 = test.count - count2 - count1;
+		//test.primeIndentify(n);
+		for (int i = 0; i < n; i++) {
+			test.primeIndentify(i);
+		}
+		count4 = test.count - count3 - count2 - count1;
+		System.out.format("%d  %d  %d   %d\n", count1, count2, count3, count4);
+
+*/	
+		System.out.println("\n" + test.primzahlen(n)+ "");
 	}
 }

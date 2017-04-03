@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Eratosthenes {
 
@@ -12,7 +13,7 @@ public class Eratosthenes {
 		this.counter = counter;
 	}
 
-	public ArrayList<Integer> allPrimes(int N) {
+	public ArrayList<Integer> primzahlen(int N) {
 
 		boolean[] a = new boolean[N];
 		for (int i = 0; i < N; i++) {
@@ -31,13 +32,12 @@ public class Eratosthenes {
 		}
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for (int i = 0; i < a.length; i++) {
-
 			count();
 			if (a[i]) {
 				list.add(i);
 			}
-
 		}
+		System.out.println(counter.getCounter());
 		return list;
 	}
 
@@ -48,5 +48,14 @@ public class Eratosthenes {
 		if (counter != null) {
 			counter.counterUp(1);
 		}
+	}
+	public static void main(String[] args) {
+		Counter count = new Counter();
+		Eratosthenes test = new Eratosthenes(count);
+		System.out.print("Please input a number for the Eratosthenes search. ");
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		scan.close();
+		System.out.println("\n" + test.primzahlen(n)+ "");
 	}
 }

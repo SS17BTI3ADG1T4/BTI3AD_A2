@@ -1,5 +1,5 @@
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+% PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
@@ -31,7 +31,7 @@
 \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 
 %----------------------------------------------------------------------------------------
-%	TITLE SECTION
+% TITLE SECTION
 %----------------------------------------------------------------------------------------
 
 \newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
@@ -82,11 +82,22 @@ Auswertung der Implementierungen.
   \begin{tabular}{ r | r }
     N & T(N) \\
     \hline
-    10 & 92 \\
-  	100 & 9902 \\
-  	1000 & 999002 \\
-  	10000 & 99990002 \\
-  	100000 & 1409965410 \\
+    1 & 0 \\
+    2 & 0 \\
+    4 & 14 \\
+    8 & 58 \\
+    16 & 242 \\
+    32 & 994 \\
+    64 & 4034 \\
+    128 & 16258 \\
+    256 & 65282 \\
+    512 & 261634 \\
+    1024 & 1047554 \\
+    2048 & 4192258 \\
+    4096 & 16773122 \\
+    8192 & 67100674 \\
+    16384 & 268419074 \\
+    32768 & 1073709058 \\
   \end{tabular}
   \caption{Langsames Primzahl Suchen}
   \label{table:1}
@@ -97,11 +108,22 @@ Auswertung der Implementierungen.
   \begin{tabular}{ r | r }
     N & T(N) \\
     \hline
-    10 & 29 \\
-  	100 & 437 \\
-  	1000 & 7289 \\
-  	10000 & 137528 \\
-  	100000 & 2945695 \\
+    1 & 0 \\
+    2 & 0 \\
+    4 & 10 \\
+    8 & 22 \\
+    16 & 50 \\
+    32 & 115 \\
+    64 & 259 \\
+    128 & 594 \\
+    256 & 1371 \\
+    512 & 3200 \\
+    1024 & 7521 \\
+    2048 & 17918 \\
+    4096 & 43359 \\
+    8192 & 105994 \\
+    16384 & 262725 \\
+    32768 & 656624 \\
   \end{tabular}
   \caption{Schnelles Primzahl Suchen}
   \label{table:2}
@@ -112,16 +134,49 @@ Auswertung der Implementierungen.
   \begin{tabular}{ r | r }
     N & T(N) \\
     \hline
-    10 & 27 \\
-  	100 & 319 \\
-  	1000 & 3577 \\
-  	10000 & 38087 \\
-  	100000 & 402467 \\
+    1 & 0 \\
+    2 & 0 \\
+    4 & 8 \\
+    8 & 19 \\
+    16 & 44 \\
+    32 & 96 \\
+    64 & 203 \\
+    128 & 420 \\
+    256 & 861 \\
+    512 & 1778 \\
+    1024 & 3665 \\
+    2048 & 7478 \\
+    4096 & 15249 \\
+    8192 & 31122 \\
+    16384 & 63284 \\
+    32768 & 128849 \\
   \end{tabular}
   \caption{Sieb des Eratosthenes}
   \label{table:3}
 \end{table}
 
-\subsection{Primzahleigenschaft Feststellen}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ r | r }
+    N & T(N) \\
+    \hline
+    3 & 0 \\
+    7 & 1 \\
+    13 & 2 \\
+    31 & 4 \\
+    61 & 6 \\
+    127 & 10 \\
+    251 & 14 \\
+    509 & 21 \\
+    1021 & 30 \\
+    2039 & 44 \\
+    4093 & 62 \\
+    8191 & 89 \\
+    16381 & 126 \\
+    32719 & 179 \\
+  \end{tabular}
+  \caption{Primzahleigenschaft Feststellen}
+  \label{table:4}
+\end{table}
 
 \end{document}

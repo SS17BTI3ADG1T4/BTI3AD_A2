@@ -77,7 +77,8 @@ Auswertung der Implementierungen.
 
 \section{Heuristische Auswertung}
 
-\begin{table}[h!]
+\begin{table}[h]
+  \parbox{.5\linewidth}{
   \centering
   \begin{tabular}{ r | r }
     N & T(N) \\
@@ -101,9 +102,8 @@ Auswertung der Implementierungen.
   \end{tabular}
   \caption{Langsames Primzahl Suchen}
   \label{table:1}
-\end{table}
-
-\begin{table}[h!]
+  }
+  \parbox{.5\linewidth}{
   \centering
   \begin{tabular}{ r | r }
     N & T(N) \\
@@ -127,56 +127,55 @@ Auswertung der Implementierungen.
   \end{tabular}
   \caption{Schnelles Primzahl Suchen}
   \label{table:2}
-\end{table}
-
-\begin{table}[h!]
-  \centering
-  \begin{tabular}{ r | r }
-    N & T(N) \\
-    \hline
-    1 & 0 \\
-    2 & 0 \\
-    4 & 8 \\
-    8 & 19 \\
-    16 & 44 \\
-    32 & 96 \\
-    64 & 203 \\
-    128 & 420 \\
-    256 & 861 \\
-    512 & 1778 \\
-    1024 & 3665 \\
-    2048 & 7478 \\
-    4096 & 15249 \\
-    8192 & 31122 \\
-    16384 & 63284 \\
-    32768 & 128849 \\
-  \end{tabular}
-  \caption{Sieb des Eratosthenes}
-  \label{table:3}
-\end{table}
-
-\begin{table}[h!]
-  \centering
-  \begin{tabular}{ r | r }
-    N & T(N) \\
-    \hline
-    3 & 0 \\
-    7 & 1 \\
-    13 & 2 \\
-    31 & 4 \\
-    61 & 6 \\
-    127 & 10 \\
-    251 & 14 \\
-    509 & 21 \\
-    1021 & 30 \\
-    2039 & 44 \\
-    4093 & 62 \\
-    8191 & 89 \\
-    16381 & 126 \\
-    32719 & 179 \\
-  \end{tabular}
-  \caption{Primzahleigenschaft Feststellen}
-  \label{table:4}
+  }
+  \parbox{.5\linewidth}{
+    \centering
+    \begin{tabular}{ r | r }
+      N & T(N) \\
+      \hline
+      1 & 0 \\
+      2 & 0 \\
+      4 & 8 \\
+      8 & 19 \\
+      16 & 44 \\
+      32 & 96 \\
+      64 & 203 \\
+      128 & 420 \\
+      256 & 861 \\
+      512 & 1778 \\
+      1024 & 3665 \\
+      2048 & 7478 \\
+      4096 & 15249 \\
+      8192 & 31122 \\
+      16384 & 63284 \\
+      32768 & 128849 \\
+    \end{tabular}
+    \caption{Sieb des Eratosthenes}
+    \label{table:3}
+  }
+  \parbox{.5\linewidth}{
+    \centering
+    \begin{tabular}{ r | r }
+      N & T(N) \\
+      \hline
+      3 & 0 \\
+      7 & 1 \\
+      13 & 2 \\
+      31 & 4 \\
+      61 & 6 \\
+      127 & 10 \\
+      251 & 14 \\
+      509 & 21 \\
+      1021 & 30 \\
+      2039 & 44 \\
+      4093 & 62 \\
+      8191 & 89 \\
+      16381 & 126 \\
+      32719 & 179 \\
+    \end{tabular}
+    \caption{Primzahleigenschaft Feststellen}
+    \label{table:4}
+  }
 \end{table}
 
 \end{document}

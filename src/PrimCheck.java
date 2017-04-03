@@ -20,11 +20,11 @@ public class PrimCheck {
 		for (int i = 2; i <= Math.sqrt(num); i ++) {
 			count();
 			if (num % i == 0) {
-				System.out.println(counter.getCounter());
+				System.out.print("\t" + counter.getCounter() + "\n");
 				return false;
 			}
 		}
-		System.out.println(counter.getCounter());
+		System.out.print("\t" + counter.getCounter() + "\n");
 		return true;
 	}
 

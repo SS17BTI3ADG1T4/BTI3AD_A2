@@ -6,7 +6,10 @@ TEXFLAGS =
 all : main.pdf
 
 clean :
-	rm -f *.aux *.log *.pdf *.toc
+	rm -f *.aux *.log *.toc
 
-main.pdf : src/main.tex
+main.pdf : src/main.tex main.toc
+	$(TEX) $(TEXFLAGS) $^
+
+main.toc : src/main.tex
 	$(TEX) $(TEXFLAGS) $^

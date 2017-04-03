@@ -60,6 +60,8 @@ Auswertung der Implementierungen.
 
 \renewcommand{\contentsname}{Inhaltsangabe}
 \tableofcontents
+\listoftables
+\listoffigures
 
 \section{Theoretische Betrachtung}
 
@@ -75,11 +77,50 @@ Auswertung der Implementierungen.
 
 \section{Heuristische Auswertung}
 
-\subsection{Langsames Primzahl Suchen}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ r | r }
+    N & T(N) \\
+    \hline
+    10 & 92 \\
+  	100 & 9902 \\
+  	1000 & 999002 \\
+  	10000 & 99990002 \\
+  	100000 & 1409965410 \\
+  \end{tabular}
+  \caption{Langsames Primzahl Suchen}
+  \label{table:1}
+\end{table}
 
-\subsection{Schnelles Primzahl Suchen}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ r | r }
+    N & T(N) \\
+    \hline
+    10 & 29 \\
+  	100 & 437 \\
+  	1000 & 7289 \\
+  	10000 & 137528 \\
+  	100000 & 2945695 \\
+  \end{tabular}
+  \caption{Schnelles Primzahl Suchen}
+  \label{table:2}
+\end{table}
 
-\subsection{Sieb des Eratosthenes}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{ r | r }
+    N & T(N) \\
+    \hline
+    10 & 27 \\
+  	100 & 319 \\
+  	1000 & 3577 \\
+  	10000 & 38087 \\
+  	100000 & 402467 \\
+  \end{tabular}
+  \caption{Sieb des Eratosthenes}
+  \label{table:3}
+\end{table}
 
 \subsection{Primzahleigenschaft Feststellen}
 

@@ -9,6 +9,8 @@
 \usepackage[english]{babel} % English language/hyphenation
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
 
 
 \usepackage{sectsty} % Allows customizing section commands
@@ -50,6 +52,7 @@
 
 \begin{document}
 
+
 \maketitle % Print the title
 
 \subsubsection*{Abstract}
@@ -77,7 +80,7 @@ Auswertung der Implementierungen.
 
 \section{Heuristische Auswertung}
 
-\begin{table}[h]
+\begin{table}[h!]
   \parbox{.5\linewidth}{
   \centering
   \begin{tabular}{ r | r }
@@ -177,5 +180,25 @@ Auswertung der Implementierungen.
     \label{table:4}
   }
 \end{table}
+
+\begin{tikzpicture}
+\begin{axis}[
+  xlabel=N Problemgroesse,
+  ylabel=T(N) Aufwand]
+\addplot table [x=N, y=slow]{data.dat};
+\addlegendentry{langsame Suche}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+  xlabel=N Problemgroesse,
+  ylabel=T(N) Aufwand]
+\addplot table [x=N, y=fast]{data.dat};
+\addlegendentry{schnelle Suche}
+\addplot table [x=N, y=eras]{data.dat};
+\addlegendentry{Sieb des Eratosthenes}
+\end{axis}
+\end{tikzpicture}
 
 \end{document}

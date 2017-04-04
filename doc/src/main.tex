@@ -4,6 +4,7 @@
 
 \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
 
+\usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
 \usepackage[english]{babel} % English language/hyphenation
@@ -12,8 +13,6 @@
 \usepackage{pgfplotstable}
 \usepackage{pgfplots}
 \usepackage{booktabs}
-
-
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
 
@@ -63,19 +62,41 @@ Alorithmen zum Finden und Testen von Primzahlen. Dieses Dokument behandelt die
 Auswertung der Implementierungen.
 
 \renewcommand{\contentsname}{Inhaltsangabe}
+\renewcommand*\listtablename{Tabellen}
+\renewcommand*\listfigurename{Darstellungen}
 \tableofcontents
 \listoftables
 \listoffigures
 
 \section{Theoretische Betrachtung}
 
-\subsection{Langsames Primzahl Suchen}
+In dieser Aufgabe sollen Algorithmen zum Suchen und bestimmen von Primzahlen
+entsprechenden des Skripts implementiert und, wenn m\"oglich, optimiert werden.
+Die Primzahlensuchen sollen \"uber Felder von Wahrheitswerten erfolgen, wobei der
+Index die Zahlen repr\"asentiert. Die Problemgr\"o{\ss}e $N$ entspricht hierbei
+der L\"ange des Feldes bzw. bei \ref{secCheck} dem Wert der Zahl.
 
-\subsection{Schnelles Primzahl Suchen}
+\subsection{Langsames Primzahl Suchen}\label{secSlow}
+Bei dieser Implementation werden alle ganzen Zahlen von $2$ bis $N$ darauf
+gepr\"uft, ob sie durch alle anderen ganzen Zahlen des gleichen Intervals teilbar
+sind. Die Teilbarkeit wird durch die Modulofunktion bestimmt. Ist die zu testende
+Zahl durch eine der anderen Zahlen teilbar, so wird sie aus dem Feld gestrichen.
 
-\subsection{Sieb des Eratosthenes}
+Da dieser Algorithmus f\"ur jede Zahl des bereiches den gesamten Bereicht durchl\"auft,
+erh\"alt man theoretisch einen Aufwand, welcher relativ zur Problemgr\"o{\ss}e
+quadratisch w\"achst.
 
-\subsection{Primzahleigenschaft Feststellen}
+\subsection{Schnelles Primzahl Suchen}\label{secFast}
+F\"ur diese Implementation wird bei jeder Zahl des Bereiches zum Testen, ob sie
+eine Primzahl sind, die Funktion verwendet, die f\"ur \ref{secCheck} implementiert
+wurde. Da der Algorithmus aus \ref{secCheck} eine Aufwand aufweist, welcher sich
+quadratwurzelartig zur Problemgr\"o{\ss}e verh\"alt, und dieser in einer Schleife
+auf jede Zahl des Bereiches angewandt wirdt, erh\"alt man ein Aufwandswachstum,
+welches proportional zu $N^{1.5}$ ist.
+
+\subsection{Sieb des Eratosthenes}\label{secEras}
+
+\subsection{Primzahleigenschaft Feststellen}\label{secCheck}
 
 %-------------------------------
 

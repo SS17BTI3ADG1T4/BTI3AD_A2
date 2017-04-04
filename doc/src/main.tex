@@ -4,7 +4,7 @@
 
 \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
 
-\usepackage[margin=1cm]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
 \usepackage[english]{babel} % English language/hyphenation
@@ -57,7 +57,7 @@
 
 \subsubsection*{Abstract}
 Durch die Aufgabe Nummer 2 in Algorithmen und Datenstrukturen soll uns die
-Thematik der Komplexitaet naeher gebracht werden. Dies geschieht am Beispiel vom
+Thematik der Komplexit\"at n\"aher gebracht werden. Dies geschieht am Beispiel vom
 Alorithmen zum Finden und Testen von Primzahlen. Dieses Dokument behandelt die
 Auswertung der Implementierungen.
 
@@ -74,7 +74,7 @@ In dieser Aufgabe sollen Algorithmen zum Suchen und bestimmen von Primzahlen
 entsprechenden des Skripts implementiert und, wenn m\"oglich, optimiert werden.
 Die Primzahlensuchen sollen \"uber Felder von Wahrheitswerten erfolgen, wobei der
 Index die Zahlen repr\"asentiert. Die Problemgr\"o{\ss}e $N$ entspricht hierbei
-der L\"ange des Feldes bzw. bei \ref{secCheck} dem Wert der Zahl.
+der L\"ange des Feldes bzw. bei der Feststellung der Primzahleneigenschaft dem Wert der Zahl.
 
 \subsection{Langsames Primzahl Suchen}\label{secSlow}
 Bei dieser Implementation werden alle ganzen Zahlen von $2$ bis $N$ darauf
@@ -82,17 +82,17 @@ gepr\"uft, ob sie durch alle anderen ganzen Zahlen des gleichen Intervals teilba
 sind. Die Teilbarkeit wird durch die Modulofunktion bestimmt. Ist die zu testende
 Zahl durch eine der anderen Zahlen teilbar, so wird sie aus dem Feld gestrichen.
 
-Da dieser Algorithmus f\"ur jede Zahl des bereiches den gesamten Bereicht durchl\"auft,
+Da dieser Algorithmus f\"ur jede Zahl des Bereiches den gesamten Bereich durchl\"auft,
 erh\"alt man theoretisch einen Aufwand, welcher relativ zur Problemgr\"o{\ss}e
 quadratisch w\"achst.
 
 \subsection{Schnelles Primzahl Suchen}\label{secFast}
 F\"ur diese Implementation wird bei jeder Zahl des Bereiches zum Testen, ob sie
-eine Primzahl sind, die Funktion verwendet, die f\"ur \ref{secCheck} implementiert
+eine Primzahl ist, die Funktion verwendet, die f\"ur \ref{secCheck} implementiert
 wurde. Der Algorithmus aus \ref{secCheck} weist eine Aufwand auf, welcher sich
 quadratwurzelartig zur Problemgr\"o{\ss}e verh\"alt. Da dieser in einer Schleife
 auf jede Zahl des Bereiches angewandt wirdt, erh\"alt man, analog zu der Rechnung
-auf Seite 29 des Skripst ein Aufwandswachstum, welches proportional zu $N \cdot ln(N)$ ist.
+auf Seite 29 des Skripst, ein Aufwandswachstum, welches proportional zu $N \cdot ln(N)$ ist.
 
 \subsection{Sieb des Eratosthenes}\label{secEras}
 Das Sieb des Eratosthenes wurde des Skripts entsprechend implementiert. Man geht
@@ -104,7 +104,7 @@ der Quadratwurzel der Feldgr\"o{\ss}e entspricht.
 \subsection{Primzahleigenschaft Feststellen}\label{secCheck}
 Dieser Algorithmus pr\"uft die Primzahleigenschaft einer nat\"urlichen Zahl, indem
 ihre Teilbarkeit durch alle nat\"urlichen Zahlen von $2$ bis zu ihrer Quadratwurzel
-durch die Modulofunktion getestet wird. Dies basiert darauf, dass, falls es einen
+getestet wird. Dies basiert darauf, dass, falls es einen
 weiteren Teiler gr\"o{\ss}er als die Quadratwurzel gibt, es auch einen geben muss,
 der kleiner als diese ist. Laufzeit der funktion ist proportional zu $\sqrt{N}$ bzw.
 besser, insofern man die suchenden Schleife abbricht, sobald ein Teiler gefunden wurde.
@@ -120,28 +120,29 @@ Primzahlensuchalgorithmen in Abh\"angigkeit des Problemgr\"o{\ss}eparamters $N$
 zu sehen. Es wurde sich dazu entschieden, die Problemgr\"o{\ss}e exponentiell
 ansteigen zu lassen, um einen breiten \"Uberblick der der Auswirkung zu bekommen.
 
-Es ist bereits an  der Anzahl der Ziffern zu erkennen, dass die erste Implementation
-einen deutlich h\"oheren Aufwand hat als die anderen beiden. Weiterhin kann man auf
-Grund der Daten auch die Formel der Funktion f\"ur den Aufwand der ersten Funktion erstellen
-Diese lautet: $T(N)_{langsam} = N^2 -N +2$. Die einzigen Ausnahem dazu sind die ersten
-beiden Messwerte.
+In der Tabelle \ref{table:1} ist es bereits an  der Anzahl der Ziffern zu erkennen,
+dass die erste Implementation einen deutlich h\"oheren Aufwand hat als die anderen
+beiden. Weiterhin kann man auf Grund der Daten auch die Formel der Funktion f\"ur
+den Aufwand der ersten Funktion erstellen. Diese lautet: $T(N)_{langsam} = N^2 -N +2$.
+Die einzigen Ausnahem dazu sind die ersten beiden Messwerte, was wohl daran liegt,
+dass der Algorithmus bei deren Werten sofort abbricht bzw. abk\"urzt.
 
 Der Graph \ref{figure:1} stellt die Abh\"angigkeit zwischen Problemgr\"o{\ss}e und
 Aufwand der ersten Implementation in einem lin/lin-Plot dar. Auch hier ist die
 quadratische Abh\"agigkeit gut an der Parabelform des Graphen zu erkennen.
 
-Graphen \ref{figure:2} und \ref{figure:3} plotten eine gleiche Grafik f\"r die
+Graphen \ref{figure:2} und \ref{figure:3} plotten eine gleiche Grafik f\"ur die
 anderen beiden Implementationen. Die Form von \ref{figure:2} best\"arkt die Vermutung
 der Formel aus der \ref{secFast}. Die Form von \ref{figure:2} l\"asst auf einen
 linearen Zusammenhang schlie{\ss}en.
 
 \subsection{Primzahleigenschaft}
 
-Sowhol die Werte aus \ref{table:2} als auch der Graph \ref{figure:4} zeigen gut
+Sowohl die Werte aus \ref{table:2} als auch der Graph \ref{figure:4} zeigen gut
 den quadratwurzelartigen Zusammenhang zwischen der Problemgr\"o{\ss}e und dem Aufwand.
 Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:4}.
 
-\begin{table}
+\begin{table}[h]
   \centering
   \pgfplotstabletypeset[
       column type=r,
@@ -168,7 +169,7 @@ Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:
   \label{table:1}
 \end{table}
 
-\begin{table}
+\begin{table}[h]
   \centering
   \pgfplotstabletypeset[
       column type=r,
@@ -187,7 +188,7 @@ Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:
   \label{table:2}
 \end{table}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -200,7 +201,7 @@ Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:
   \label{figure:1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -213,7 +214,7 @@ Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:
   \label{figure:2}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -226,7 +227,7 @@ Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:
   \label{figure:3}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{tikzpicture}
     \begin{axis}[

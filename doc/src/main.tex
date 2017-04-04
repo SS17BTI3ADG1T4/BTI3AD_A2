@@ -81,26 +81,32 @@ Auswertung der Implementierungen.
 
 \section{Heuristische Auswertung}
 
-\pgfplotstabletypeset[
-    column type=r,
-    columns/N/.style={
-      column name=$N$,
-      /pgf/number format/fixed,
-    },
-    columns/slow/.style={
-      column name=$T(N)_{langsam}$,
-      /pgf/number format/fixed,
-    },
-    columns/fast/.style={
-      column name=$T(N)_{schnell}$,
-      /pgf/number format/fixed,
-    },
-    columns/eras/.style={
-      column name=$T(N)_{Sieb}$,
-      /pgf/number format/fixed,
-    },
-    every head row/.style={after row=\midrule},
-]{data.dat}
+\begin{table}[h!]
+  \centering
+  \pgfplotstabletypeset[
+      column type=r,
+      columns/N/.style={
+        column name=$N$,
+        /pgf/number format/fixed,
+      },
+      columns/slow/.style={
+        column name=$T(N)_{langsam}$,
+        /pgf/number format/fixed,
+      },
+      columns/fast/.style={
+        column name=$T(N)_{schnell}$,
+        /pgf/number format/fixed,
+      },
+      columns/eras/.style={
+        column name=$T(N)_{Sieb}$,
+        /pgf/number format/fixed,
+      },
+      every head row/.style={after row=\midrule},
+  ]{data.dat}
+  \caption{Tabelle des Aufwands $T(N)$ der verschiedenen Algorithmen bei
+  steigender Problemgroesse $N$}
+  \label{table:1}
+\end{table}
 
 \begin{figure}[h]
   \begin{tikzpicture}

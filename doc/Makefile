@@ -8,7 +8,7 @@ all : main.pdf
 clean :
 	rm -f *.aux *.log *.toc *.lof *.lot *.toc
 
-main.pdf : src/main.tex main.lof main.lot main.toc data.dat
+main.pdf : src/main.tex main.lof main.lot main.toc *.dat
 	$(TEX) $(TEXFLAGS) $^
 
 main.lof main.lot main.toc : src/main.tex

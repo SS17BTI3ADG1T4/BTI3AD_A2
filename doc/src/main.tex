@@ -102,36 +102,81 @@ Auswertung der Implementierungen.
         /pgf/number format/fixed,
       },
       every head row/.style={after row=\midrule},
-  ]{data.dat}
+  ]{search.dat}
   \caption{Tabelle des Aufwands $T(N)$ der verschiedenen Algorithmen bei
   steigender Problemgroesse $N$}
   \label{table:1}
 \end{table}
 
 \begin{figure}[h]
+  \centering
   \begin{tikzpicture}
     \begin{axis}[
       xlabel=N Problemgroesse,
       ylabel=T(N) Aufwand]
-    \addplot table [x=N, y=slow]{data.dat};
-    \addlegendentry{langsame Suche}
+      \addplot table [x=N, y=slow]{search.dat};
     \end{axis}
   \end{tikzpicture}
   \caption{Graph des Aufwands bei der langsamen Suche}
   \label{figure:1}
 \end{figure}
+
 \begin{figure}[h]
+  \centering
   \begin{tikzpicture}
     \begin{axis}[
       xlabel=N Problemgroesse,
       ylabel=T(N) Aufwand]
-    \addplot table [x=N, y=fast]{data.dat};
-    \addlegendentry{schnelle Suche}
-    \addplot table [x=N, y=eras]{data.dat};
-    \addlegendentry{Sieb des Eratosthenes}
+      \addplot table [x=N, y=fast]{search.dat};
     \end{axis}
   \end{tikzpicture}
-  \caption{Graph des Aufwands bei der schnellen Suche und dem Sieb des Eratosthenes}
+  \caption{Graph des Aufwands bei der schnellen Suche}
+  \label{figure:2}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel=N Problemgroesse,
+      ylabel=T(N) Aufwand]
+      \addplot table [x=N, y=eras]{search.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands bei dem Sieb des Eratosthenes}
+  \label{figure:2}
+\end{figure}
+
+\begin{table}[h!]
+  \centering
+  \pgfplotstabletypeset[
+      column type=r,
+      columns/N/.style={
+        column name=$N$,
+        /pgf/number format/fixed,
+      },
+      columns/slow/.style={
+        column name=$T(N)_{check}$,
+        /pgf/number format/fixed,
+      },
+      every head row/.style={after row=\midrule},
+  ]{check.dat}
+  \caption{Tabelle des Aufwands $T(N)$ des Algorithmus zum Pruefen der
+  Primzahleigenschaft bei steigender Problemgroesse $N$}
+  \label{table:1}
+\end{table}
+
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel=N Problemgroesse,
+      ylabel=T(N) Aufwand]
+      \addplot table [x=N, y=check]{check.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands bei dem Sieb des Pruefen der Primzahleigenschaft}
   \label{figure:2}
 \end{figure}
 

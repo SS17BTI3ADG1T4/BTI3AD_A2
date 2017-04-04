@@ -4,7 +4,7 @@
 
 \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
 
-\usepackage[margin=2cm]{geometry}
+\usepackage[margin=1cm]{geometry}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
 \usepackage[english]{babel} % English language/hyphenation
@@ -89,20 +89,59 @@ quadratisch w\"achst.
 \subsection{Schnelles Primzahl Suchen}\label{secFast}
 F\"ur diese Implementation wird bei jeder Zahl des Bereiches zum Testen, ob sie
 eine Primzahl sind, die Funktion verwendet, die f\"ur \ref{secCheck} implementiert
-wurde. Da der Algorithmus aus \ref{secCheck} eine Aufwand aufweist, welcher sich
-quadratwurzelartig zur Problemgr\"o{\ss}e verh\"alt, und dieser in einer Schleife
-auf jede Zahl des Bereiches angewandt wirdt, erh\"alt man ein Aufwandswachstum,
-welches proportional zu $N^{1.5}$ ist.
+wurde. Der Algorithmus aus \ref{secCheck} weist eine Aufwand auf, welcher sich
+quadratwurzelartig zur Problemgr\"o{\ss}e verh\"alt. Da dieser in einer Schleife
+auf jede Zahl des Bereiches angewandt wirdt, erh\"alt man, analog zu der Rechnung
+auf Seite 29 des Skripst ein Aufwandswachstum, welches proportional zu $N \cdot ln(N)$ ist.
 
 \subsection{Sieb des Eratosthenes}\label{secEras}
+Das Sieb des Eratosthenes wurde des Skripts entsprechend implementiert. Man geht
+von der ersten Primzahl $2$ aus und streicht all ihre Vielfachen aus dem Feld. Danach
+geht man zur n\"achsten noch nicht gestrichenen Zahl und wiederholt das Streichen der
+Vielfachen. Dies wiederholt man so lange, bis man die Zahl \"uberschritten hat, die
+der Quadratwurzel der Feldgr\"o{\ss}e entspricht.
 
 \subsection{Primzahleigenschaft Feststellen}\label{secCheck}
+Dieser Algorithmus pr\"uft die Primzahleigenschaft einer nat\"urlichen Zahl, indem
+ihre Teilbarkeit durch alle nat\"urlichen Zahlen von $2$ bis zu ihrer Quadratwurzel
+durch die Modulofunktion getestet wird. Dies basiert darauf, dass, falls es einen
+weiteren Teiler gr\"o{\ss}er als die Quadratwurzel gibt, es auch einen geben muss,
+der kleiner als diese ist. Laufzeit der funktion ist proportional zu $\sqrt{N}$ bzw.
+besser, insofern man die suchenden Schleife abbricht, sobald ein Teiler gefunden wurde.
 
 %-------------------------------
 
 \section{Heuristische Auswertung}
 
-\begin{table}[h]
+\subsection{Primzahl Suche}
+
+In der Tabelle \ref{table:1} sind Laufzeiten $T(N)$ unserer Implementierungen der
+Primzahlensuchalgorithmen in Abh\"angigkeit des Problemgr\"o{\ss}eparamters $N$
+zu sehen. Es wurde sich dazu entschieden, die Problemgr\"o{\ss}e exponentiell
+ansteigen zu lassen, um einen breiten \"Uberblick der der Auswirkung zu bekommen.
+
+Es ist bereits an  der Anzahl der Ziffern zu erkennen, dass die erste Implementation
+einen deutlich h\"oheren Aufwand hat als die anderen beiden. Weiterhin kann man auf
+Grund der Daten auch die Formel der Funktion f\"ur den Aufwand der ersten Funktion erstellen
+Diese lautet: $T(N)_{langsam} = N^2 -N +2$. Die einzigen Ausnahem dazu sind die ersten
+beiden Messwerte.
+
+Der Graph \ref{figure:1} stellt die Abh\"angigkeit zwischen Problemgr\"o{\ss}e und
+Aufwand der ersten Implementation in einem lin/lin-Plot dar. Auch hier ist die
+quadratische Abh\"agigkeit gut an der Parabelform des Graphen zu erkennen.
+
+Graphen \ref{figure:2} und \ref{figure:3} plotten eine gleiche Grafik f\"r die
+anderen beiden Implementationen. Die Form von \ref{figure:2} best\"arkt die Vermutung
+der Formel aus der \ref{secFast}. Die Form von \ref{figure:2} l\"asst auf einen
+linearen Zusammenhang schlie{\ss}en.
+
+\subsection{Primzahleigenschaft}
+
+Sowhol die Werte aus \ref{table:2} als auch der Graph \ref{figure:4} zeigen gut
+den quadratwurzelartigen Zusammenhang zwischen der Problemgr\"o{\ss}e und dem Aufwand.
+Dies sieht man vor allem an der nach rechts ge\"offneten Parabel in \ref{figure:4}.
+
+\begin{table}
   \centering
   \pgfplotstabletypeset[
       column type=r,
@@ -124,51 +163,12 @@ welches proportional zu $N^{1.5}$ ist.
       },
       every head row/.style={after row=\midrule},
   ]{search.dat}
-  \caption{Tabelle des Aufwands $T(N)$ der verschiedenen Algorithmen bei
+  \caption{Tabelle des Aufwands $T(N)$ der verschiedenen Suchalgorithmen bei
   steigender Problemgroesse $N$}
   \label{table:1}
 \end{table}
 
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      xlabel=N Problemgroesse,
-      ylabel=T(N) Aufwand]
-      \addplot table [x=N, y=slow]{search.dat};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Graph des Aufwands bei der langsamen Suche}
-  \label{figure:1}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      xlabel=N Problemgroesse,
-      ylabel=T(N) Aufwand]
-      \addplot table [x=N, y=fast]{search.dat};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Graph des Aufwands bei der schnellen Suche}
-  \label{figure:2}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      xlabel=N Problemgroesse,
-      ylabel=T(N) Aufwand]
-      \addplot table [x=N, y=eras]{search.dat};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Graph des Aufwands bei dem Sieb des Eratosthenes}
-  \label{figure:3}
-\end{figure}
-
-\begin{table}[h]
+\begin{table}
   \centering
   \pgfplotstabletypeset[
       column type=r,
@@ -184,11 +184,49 @@ welches proportional zu $N^{1.5}$ ist.
   ]{check.dat}
   \caption{Tabelle des Aufwands $T(N)$ des Algorithmus zum Pruefen der
   Primzahleigenschaft bei steigender Problemgroesse $N$}
-  \label{table:1}
+  \label{table:2}
 \end{table}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel=N Problemgroesse,
+      ylabel=T(N) Aufwand]
+      \addplot table [x=N, y=slow]{search.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands bei der langsamen Suche}
+  \label{figure:1}
+\end{figure}
 
-\begin{figure}[h]
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel=N Problemgroesse,
+      ylabel=T(N) Aufwand]
+      \addplot table [x=N, y=fast]{search.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands bei der schnellen Suche}
+  \label{figure:2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel=N Problemgroesse,
+      ylabel=T(N) Aufwand]
+      \addplot table [x=N, y=eras]{search.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Graph des Aufwands bei dem Sieb des Eratosthenes}
+  \label{figure:3}
+\end{figure}
+
+\begin{figure}
   \centering
   \begin{tikzpicture}
     \begin{axis}[

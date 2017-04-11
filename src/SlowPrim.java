@@ -1,18 +1,38 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SlowPrim.
+ */
 public class SlowPrim {
 
+	/** The counter. */
 	private Counter counter;
 
+	/**
+	 * Instantiates a new slow prim.
+	 */
 	public SlowPrim() {
 	}
 
+	/**
+	 * Instantiates a new slow prim.
+	 *
+	 * @param counter the counter
+	 */
 	public SlowPrim(Counter counter) {
 		this();
 		this.counter = counter;
 	}
 
+
+  /**
+   * Algorithm that calculates all prime numbers from 1 to N
+   *
+   * @param N max number to be checked
+   * @return the array list of all primes in 1 to N
+   */
 	public ArrayList<Integer> primzahlen(int N) {
 		if (N <= 1) {
 			System.out.print("\t" + counter.getCounter() + "\n");
@@ -61,6 +81,11 @@ public class SlowPrim {
 		}
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		Counter count = new Counter();
 		SlowPrim test = new SlowPrim(count);

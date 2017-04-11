@@ -1,18 +1,37 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FastPrim.
+ */
 public class FastPrim {
 
+	/** The counter. */
 	private Counter counter;
 
+	/**
+	 * Instantiates a new fast prim.
+	 */
 	public FastPrim() {
 	}
 
+	/**
+	 * Instantiates a new fast prim.
+	 * with a counter.
+	 * @param counter the counter
+	 */
 	public FastPrim(Counter counter) {
 		this();
 		this.counter = counter;
 	}
 
+	/**
+   * Algorithm that calculates all prime numbers from 1 to N
+   *
+   * @param N max number to be checked
+   * @return the array list of all primes in 1 to N
+   */
 	public ArrayList<Integer> primzahlen(int n) {
 	  if(n<=1){
 		  System.out.print("\t" + counter.getCounter() + "\n");
@@ -66,6 +85,11 @@ public class FastPrim {
 		}
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		Counter count = new Counter();
 		FastPrim test = new FastPrim(count);

@@ -1,18 +1,37 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Eratosthenes.
+ */
 public class Eratosthenes {
 	
+	/** The counter. */
 	private Counter counter;
 
+	/**
+	 * Instantiates a new eratosthenes.
+	 */
 	public Eratosthenes() {
 	}
 
+	/**
+	 * Instantiates a new eratosthenes.
+	 * with a counter
+	 * @param counter the counter
+	 */
 	public Eratosthenes(Counter counter) {
 		this();
 		this.counter = counter;
 	}
 
+	/**
+	 * Algorithm that caalculates all prime numbers from 1 to N
+	 *
+	 * @param N max number to be checked
+	 * @return the array list of all primes in 1 to N
+	 */
 	public ArrayList<Integer> primzahlen(int N) {
 	  if(N<=1){
 		  System.out.print("\t" + counter.getCounter() + "\n");
@@ -61,6 +80,12 @@ public class Eratosthenes {
 			counter.counterUp(1);
 		}
 	}
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		Counter count = new Counter();
 		Eratosthenes test = new Eratosthenes(count);
